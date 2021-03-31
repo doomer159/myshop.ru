@@ -1,0 +1,15 @@
+php_flag magic_quotes_gpc Off
+
+AddDefaultCharset utf-8
+
+DirectoryIndex index.php
+# Создание единой точки входа с помощью инструмента сервера Apache
+RewriteEngine On
+
+#Условие: если запрос не файл
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Условие: если запрос не папка
+# RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*) index.php
